@@ -10,6 +10,8 @@
 	<string>UMCommunityDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>E733188642F33EF07506640EF4ADB06338C1496C</key>
+		<string>https://github.com/yeahugo/Heshi_Community_iOS.git</string>
 		<key>F90E67CD0393E88BD121087709512236ECDA7015</key>
 		<string>http://github.umeng.com/yeahugo/umeng_community_ios_sdk.git</string>
 	</dict>
@@ -17,17 +19,27 @@
 	<string>UMCommunityDemo/UMCommunityDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F90E67CD0393E88BD121087709512236ECDA7015</key>
+		<key>E733188642F33EF07506640EF4ADB06338C1496C</key>
 		<string>../../..</string>
+		<key>F90E67CD0393E88BD121087709512236ECDA7015</key>
+		<string>../../../../umeng_community_ios_sdk1.0(20150320)</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://github.umeng.com/yeahugo/umeng_community_ios_sdk.git</string>
+	<string>https://github.com/yeahugo/Heshi_Community_iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F90E67CD0393E88BD121087709512236ECDA7015</string>
+	<string>E733188642F33EF07506640EF4ADB06338C1496C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E733188642F33EF07506640EF4ADB06338C1496C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>umeng_community_ios_sdk_heshi</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

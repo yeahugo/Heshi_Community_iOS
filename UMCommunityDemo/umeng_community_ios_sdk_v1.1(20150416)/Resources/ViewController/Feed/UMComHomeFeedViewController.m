@@ -186,7 +186,6 @@
 
 - (void)transitionWithFromViewController:(UMComAllFeedViewController *)fromViewController disAppearViewFrame:(CGRect)disappearFrame
 {
-//    [UIView setAnimationsEnabled:YES];
     [self transitionFromViewController:fromViewController toViewController:self.currentViewController duration:0.5 options:UIViewAnimationOptionTransitionNone animations:^{
         didTransition = NO;
         if (fromViewController == self.currentViewController) {
@@ -213,7 +212,6 @@
 
 -(IBAction)onClickClose:(id)sender
 {
-//    [UIView setAnimationsEnabled:YES];
     if ([self.navigationController isKindOfClass:[UMComNavigationController class]]) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
@@ -224,10 +222,10 @@
 
 -(IBAction)onClickProfile:(id)sender
 {
-    
     [[UMComUserCenterAction action] performActionAfterLogin:nil viewController:self completion:^(NSArray *data, NSError *error) {
     }];
 }
+
 - (void)onClickFind:(UIButton *)sender
 {
     [[UMComFindAction action] performActionAfterLogin:nil viewController:self completion:^(NSArray *data, NSError *error) {
