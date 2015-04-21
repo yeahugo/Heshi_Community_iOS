@@ -16,6 +16,8 @@
 #define kTagRecommend 100
 #define kTagAll 101
 
+#define LocationTopicId @"553666917019c956f60b9f59"
+
 @interface UMComHomeFeedViewController ()
 
 @property (nonatomic,strong) UMComAllFeedViewController *currentViewController;
@@ -28,6 +30,7 @@
 @property (nonatomic, strong) UMComAllFeedViewController *recommendViewController;
 
 @property (nonatomic, strong) UIButton *editButton;
+@property (nonatomic, strong) UIButton *locationButton;
 
 
 @property (nonatomic, strong) UIButton *titleBt;
@@ -120,6 +123,33 @@
     [self.editButton setImage:[UIImage imageNamed:@"new"] forState:UIControlStateNormal];
     [self.editButton setImage:[UIImage imageNamed:@"new+"] forState:UIControlStateSelected];
     [self.editButton addTarget:self action:@selector(onClickEdit:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.locationButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.locationButton.frame = CGRectMake(self.view.frame.size.width - 70, [UIApplication sharedApplication].keyWindow.frame.size.height - 170, 50, 50);
+    [self.locationButton setBackgroundImage:[UIImage imageNamed:@"pinx"] forState:UIControlStateNormal];
+    [self.locationButton addTarget:self action:@selector(onClickLocation) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)onClickLocation
+{
+    UMComAllTopicsRequest *allTopicsRequest = [[UMComAllTopicsRequest alloc] initWithCount:TotalTopicSize];
+    [allTopicsRequest fetchRequestFromCoreData:^(NSArray *data, NSError *error) {
+        for (UMComTopic * topic in data) {
+            if ([topic.topicID isEqualToString:LocationTopicId]) {
+                [[UMComEditAction action] performActionAfterLogin:topic viewController:self completion:nil];
+                break;
+                return;
+            }
+        }
+        [allTopicsRequest fetchRequestFromServer:^(NSArray *data, BOOL haveNextPage, NSError *error) {
+            for (UMComTopic * topic in data) {
+                if ([topic.topicID isEqualToString:LocationTopicId]) {
+                    [[UMComEditAction action] performActionAfterLogin:topic viewController:self completion:nil];
+                    break;
+                }
+            }
+        }];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -134,12 +164,14 @@
     [self transitionViewControllers:nil];
     self.editButton.frame = CGRectMake(selfViewSize.width-70, selfViewSize.height-self.navigationController.navigationBar.frame.size.height, 50, 50);
     [[UIApplication sharedApplication].keyWindow addSubview:self.editButton];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.locationButton];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.editButton removeFromSuperview];
+    [self.locationButton removeFromSuperview];
 }
 
 - (void)transitionViewControllers:(id)sender
